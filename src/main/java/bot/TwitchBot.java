@@ -35,13 +35,13 @@ public class TwitchBot{
 
     private void onLiveEvent(ChannelGoLiveEvent event){
         twitchClient.getChat().sendMessage(event.getChannel().getName(), "Удачного стрима красотка!");
+        se = Executors.newScheduledThreadPool(1);
         se.scheduleAtFixedRate(new SendInfoMessage(twitchClient, event.getChannel().getName()), 0, 5, TimeUnit.MINUTES);
     }
 
     private void onOfflineEvent(ChannelGoOfflineEvent event){
         twitchClient.getChat().sendMessage(event.getChannel().getName(), "Пока пока");
-        se.shutdown();
-        twitchClient.getChat().leaveChannel(event.getChannel().getName());
+        se.shutdownNow();
     }
 
     private void onChannelMessage(ChannelMessageEvent event){
@@ -55,7 +55,7 @@ public class TwitchBot{
                 se.scheduleAtFixedRate(new SendInfoMessage(twitchClient, event.getChannel().getName()), 0, 5, TimeUnit.MINUTES);
                 break;
             case "!stop":
-                se.shutdown();
+                se.shutdownNow();
                 break;
             case "!см":
                 event.getTwitchChat().sendMessage(event.getChannel().getName(), event.getUser().getName()+" Размер твоего меча Экскалибура "+

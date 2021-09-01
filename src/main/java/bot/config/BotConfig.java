@@ -30,8 +30,6 @@ public class BotConfig {
                 .withEnableChat(true)
                 .build();
 
-
-        twitchClient.getClientHelper().enableFollowEventListener("raccoona_gg");
         twitchClient.getClientHelper().enableStreamEventListener("raccoona_gg");
         twitchClient.getChat().joinChannel("raccoona_gg");
         return twitchClient;

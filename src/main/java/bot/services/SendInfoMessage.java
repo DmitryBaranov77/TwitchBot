@@ -27,7 +27,7 @@ public class SendInfoMessage implements Runnable{
                 count++;
                 break;
             case 1:
-                msg = "Заходи в мой инстаграм, возможно я туда когда-нибудь что-нибудь туда залью (но это не точно) \uD83E\uDC16 https://www.instagram.com/raccoona__/?hl=ru ♡";
+                msg = "Заходи в мой инстаграм, возможно я туда когда-нибудь что-нибудь туда залью (но это не точно) \uD83E\uDC16 https://www.instagram.com/raccoona__ ♡";
                 count++;
                 break;
             case 2:
